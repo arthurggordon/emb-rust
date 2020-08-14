@@ -16,11 +16,15 @@ The memory map remains the same between the two boards.
 Using Ubuntu 20.04 LTS 
 
 1. Install Rust using [Rustup](https://www.rust-lang.org/tools/install), update if required
-1. Install the multi-architecture debugger gdb and open On-Chip debugger packages using:
+1. Add the Cortex-M4 target to the Rust compiler 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`$ rustup target add thumbv7em-none-eabi` 
+
+3. Install the multi-architecture debugger gdb and open On-Chip debugger packages using:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`$ sudo apt-get install gdb-multiarch openocd`
 
-3. Set udev rules for USB to enable access without root privilege
+4. Set udev rules for USB to enable access without root privilege
 * Create the file `/etc/udev/rules.d/99-openocd.rules`
 
 * Add the following lines to the file 
@@ -147,6 +151,5 @@ Breakpoint 1, main () at src/main.rs:18
 You can use standard GDB commands at this point.
 
 ## Running the application
-Disconnect the board from the computer.
-Attach the board to a power source.
-The application will automatically be copied from flash and start running.
+Disconnect the board from the computer, and attach the board to a power source.
+The application will be automatically copied from flash and start running.
