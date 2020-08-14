@@ -4,6 +4,13 @@ Embedded Rust example for STM32F4-Discovery board.
 The [Rust Discovery book](https://docs.rust-embedded.org/discovery/index.html) is an excellent introduction to embedded Rust.
 The book uses the slighty different STM32**F3**-Discovery board, whereas this project uses the STM32**F4**-Discovery board.
 
+The differences are as follows:
+* MCU changes from Cortex-M3 to Cortex-M4
+* Version of the debugging port (ST-Link)
+* Hardware Abstraction Layer (HAL)
+
+The memory map remains the same between the two boards.
+
 ## Setup
 
 Using Ubuntu 20.04 LTS 
@@ -123,7 +130,7 @@ Transfer rate: 14 KB/sec, 5001 bytes/write.
 (gdb) 
 ```
 
-## Debug Application
+## Debug the application
 
 ```
 (gdb) break main
@@ -139,5 +146,7 @@ Breakpoint 1, main () at src/main.rs:18
 
 You can use standard GDB commands at this point.
 
-## Running the Application
-Note that you can disconnect the board from the computer and attach it to a power source and the application will automatically be copied from flash and start running.
+## Running the application
+Disconnect the board from the computer.
+Attach the board to a power source.
+The application will automatically be copied from flash and start running.
